@@ -6,6 +6,19 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddSignalR();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder =>
+        builder.WithOrigins(
+                   "http://localhost:5173",
+                   "https://localhost:5173",
+                   "http://localhost:5174",
+                   "https://localhost:5174")
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowCredentials());
+});
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -16,6 +29,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseCors("CorsPolicy");
 
 app.UseRouting();
 

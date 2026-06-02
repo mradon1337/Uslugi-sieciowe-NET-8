@@ -1,0 +1,38 @@
+<!-- =========================================================
+     FRAGMENTY DO WKLEJENIA W index.html KLIENTA signalRvite
+     ========================================================= -->
+
+<!-- 1) W sekcji <head> - biblioteka kliencka SignalR z CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.js"
+        integrity="sha512-pn4yorWMbHHvdsldBpkTNjJaoadsoYs/ZgOYHSHUtivn1j/Ddgdnlgt1egjQcP8j4atM3TR+tgIqgjhi5Z11KQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<!-- 2) W <body> - sekcja czatu (UI) -->
+<section id="signalR" class="gallery-container">
+  <div class="container">
+    <div class="row p-1">
+      <div class="col-1">User</div>
+      <div class="col-5"><input type="text" id="userInput" /></div>
+    </div>
+    <div class="row p-1">
+      <div class="col-1">Message</div>
+      <div class="col-5"><input type="text" class="w-100" id="messageInput" /></div>
+    </div>
+    <div class="row p-1">
+      <div class="col-6 text-end">
+        <input type="button" id="sendButton" value="Send Message" />
+      </div>
+    </div>
+    <div class="row p-1">
+      <div class="col-6"><hr /></div>
+    </div>
+    <div class="row p-1">
+      <div class="col-6">
+        <ul id="messagesList"></ul>
+      </div>
+    </div>
+  </div>
+  <!-- skrypt klienta - patrz uwaga w sprawozdaniu nt. lokalizacji folderu js -->
+  <script src="js/chat.js"></script>
+</section>
